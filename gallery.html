@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📸 Gallery - Happy Birthday!</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Main Console -->
+    <div class="gameboy-console">
+        <!-- Top Section -->
+        <div class="console-top">
+            <div class="power-section">
+                <div class="power-led"></div>
+                <span class="power-text">POWER</span>
+            </div>
+            <div class="brand-name">HEYTML-BOY</div>
+        </div>
+
+        <!-- Screen -->
+        <div class="screen-frame">
+            <div class="screen-inner">
+                <div class="screen-content gallery-screen">
+                    <div class="gallery-header">
+                        <span class="gallery-icon">📸</span>
+                        <h2>HEYTML PhotoBox</h2>
+                    </div>
+
+                    <div class="photobox-container">
+                        <div class="photobox-frame">
+                            <div class="photo-display" id="photo-display">
+                                <div class="no-photo-message">
+                                    <span class="camera-icon">📷</span>
+                                    <p>Tambahkan foto ke folder:</p>
+                                    <code>assets/photos/</code>
+                                    <p class="hint">Format: photo1.jpg, photo2.jpg, ...</p>
+                                </div>
+                                <img id="current-photo" class="photo-image hidden" src="" alt="Memory">
+                            </div>
+                            <div class="photo-frame-decoration">
+                                <div class="frame-corner top-left"></div>
+                                <div class="frame-corner top-right"></div>
+                                <div class="frame-corner bottom-left"></div>
+                                <div class="frame-corner bottom-right"></div>
+                            </div>
+                        </div>
+
+                        <div class="photo-controls">
+                            <button class="photo-btn" id="btn-prev-photo">◀</button>
+                            <span class="photo-counter">
+                                <span id="photo-index">0</span> / <span id="photo-total">0</span>
+                            </span>
+                            <button class="photo-btn" id="btn-next-photo">▶</button>
+                        </div>
+
+                        <button class="print-btn" id="btn-print">
+                            <span class="print-icon">🖨️</span>
+                            Mulai Cetak
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls Section -->
+        <div class="controls-section">
+            <div class="dpad">
+                <div class="dpad-up"></div>
+                <div class="dpad-down"></div>
+                <div class="dpad-left"></div>
+                <div class="dpad-right"></div>
+                <div class="dpad-center"></div>
+            </div>
+
+            <div class="action-buttons">
+                <a href="message.html" class="btn-b">B</a>
+                <button class="btn-a" id="btn-next-a">A</button>
+            </div>
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="console-bottom">
+            <div class="speaker-grille">
+                <div class="speaker-line"></div>
+                <div class="speaker-line"></div>
+                <div class="speaker-line"></div>
+                <div class="speaker-line"></div>
+                <div class="speaker-line"></div>
+                <div class="speaker-line"></div>
+            </div>
+            <div class="select-start">
+                <a href="index.html" class="btn-select">HOME</a>
+                <a href="music.html" class="btn-start">NEXT</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Hearts Background -->
+    <div class="floating-hearts" id="floating-hearts"></div>
+
+    <script src="js/gallery.js"></script>
+</body>
+</html>

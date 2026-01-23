@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 Happy Birthday Afri Finda Viana!</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">HEYTML-BOY</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <div class="loading-text">Loading Game Data...</div>
+        </div>
+    </div>
+
+    <!-- Main Console -->
+    <div class="gameboy-console">
+        <!-- Top Section -->
+        <div class="console-top">
+            <div class="power-section">
+                <div class="power-led"></div>
+                <span class="power-text">POWER</span>
+            </div>
+            <div class="brand-name">HEYTML-BOY</div>
+        </div>
+
+        <!-- Screen -->
+        <div class="screen-frame">
+            <div class="screen-inner">
+                <div class="screen-content" id="main-screen">
+                    <div class="welcome-section">
+                        <div class="birthday-icon">🎂</div>
+                        <h1 class="welcome-title">Happy Birthday!</h1>
+                        <h2 class="recipient-name">Afri Finda Viana</h2>
+                        <p class="birthday-date">25 April</p>
+                        <p class="from-text">From: Neurrochmat ❤️</p>
+                    </div>
+
+                    <!-- Menu Buttons -->
+                    <div class="menu-grid">
+                        <a href="message.html" class="menu-button" data-color="blue">
+                            <span class="menu-icon">💌</span>
+                            <span class="menu-label">Message</span>
+                        </a>
+                        <a href="gallery.html" class="menu-button" data-color="pink">
+                            <span class="menu-icon">📸</span>
+                            <span class="menu-label">Gallery</span>
+                        </a>
+                        <a href="music.html" class="menu-button" data-color="purple">
+                            <span class="menu-icon">🎵</span>
+                            <span class="menu-label">Music</span>
+                        </a>
+                        <a href="tetris.html" class="menu-button" data-color="green">
+                            <span class="menu-icon">🎮</span>
+                            <span class="menu-label">Tetris</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls Section -->
+        <div class="controls-section">
+            <div class="dpad">
+                <div class="dpad-up"></div>
+                <div class="dpad-down"></div>
+                <div class="dpad-left"></div>
+                <div class="dpad-right"></div>
+                <div class="dpad-center"></div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn-b">B</button>
+                <button class="btn-a">A</button>
+            </div>
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="console-bottom">
+            <div class="speaker-grille">
+                <div class="speaker-line"></div>
+                <div class="speaker-line"></div>
+                <div class="speaker-line"></div>
+                <div class="speaker-line"></div>
+                <div class="speaker-line"></div>
+                <div class="speaker-line"></div>
+            </div>
+            <div class="select-start">
+                <button class="btn-select">SELECT</button>
+                <button class="btn-start">START</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Hearts Background -->
+    <div class="floating-hearts" id="floating-hearts"></div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💌 Message - Happy Birthday!</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Main Console -->
+    <div class="gameboy-console">
+        <!-- Top Section -->
+        <div class="console-top">
+            <div class="power-section">
+                <div class="power-led"></div>
+                <span class="power-text">POWER</span>
+            </div>
+            <div class="brand-name">HEYTML-BOY</div>
+        </div>
+
+        <!-- Screen -->
+        <div class="screen-frame">
+            <div class="screen-inner">
+                <div class="screen-content message-screen">
+                    <div class="message-header">
+                        <span class="message-icon">💌</span>
+                        <h2>Pesan Untukmu</h2>
+                    </div>
+
+                    <div class="message-container">
+                        <!-- Message Pages -->
+                        <div class="message-page active" data-page="1">
+                            <p class="message-text" id="message-1"></p>
+                        </div>
+                        <div class="message-page" data-page="2">
+                            <p class="message-text" id="message-2"></p>
+                        </div>
+                        <div class="message-page" data-page="3">
+                            <p class="message-text" id="message-3"></p>
+                        </div>
+                        <div class="message-page" data-page="4">
+                            <p class="message-text" id="message-4"></p>
+                        </div>
+                    </div>
+
+                    <div class="message-nav">
+                        <button class="nav-btn btn-prev" id="btn-prev" disabled>
+                            ◀ KEMBALI
+                        </button>
+                        <span class="page-indicator">
+                            <span id="current-page">1</span> / <span id="total-pages">4</span>
+                        </span>
+                        <button class="nav-btn btn-next" id="btn-next">
+                            SELANJUTNYA ▶
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls Section -->
+        <div class="controls-section">
+            <div class="dpad">
+                <div class="dpad-up"></div>
+                <div class="dpad-down"></div>
+                <div class="dpad-left"></div>
+                <div class="dpad-right"></div>
+                <div class="dpad-center"></div>
+            </div>
+
+            <div class="action-buttons">
+                <a href="index.html" class="btn-b">B</a>
+                <button class="btn-a" id="btn-next-a">A</button>
+            </div>
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="console-bottom">
+            <div class="speaker-grille">
+                <div class="speaker-line"></div>
+                <div class="speaker-line"></div>
+                <div class="speaker-line"></div>
+                <div class="speaker-line"></div>
+                <div class="speaker-line"></div>
+                <div class="speaker-line"></div>
+            </div>
+            <div class="select-start">
+                <a href="index.html" class="btn-select">HOME</a>
+                <a href="gallery.html" class="btn-start">NEXT</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Hearts Background -->
+    <div class="floating-hearts" id="floating-hearts"></div>
+
+    <script>
+        // Message content
+        const messages = [
+            `Selamat Ulang Tahun yang ke-spesial, Afri Finda Viana! 🎂✨
+
+Di hari istimewa ini, aku ingin menyampaikan betapa bersyukurnya aku memiliki seseorang seindah dirimu dalam hidupku.
+
+Kamu adalah alasan di balik senyumku setiap hari...`,
+
+            `Setiap momen bersamamu adalah hadiah terindah yang pernah aku terima. Tawamu adalah melodi favoritku, dan senyummu adalah pemandangan terindah yang selalu ingin aku lihat.
+
+Terima kasih sudah menjadi bagian dari hidupku... 💕`,
+
+            `Di hari ulang tahunmu ini, aku berdoa semoga semua mimpi-mimpimu menjadi kenyataan. Semoga kebahagiaan selalu menyertaimu, kesehatan selalu menjagamu, dan kesuksesan selalu menghampirimu.
+
+Semoga di tahun yang baru ini, kamu semakin bersinar! ⭐`,
+
+            `Aku berjanji akan selalu ada untukmu, di saat suka maupun duka. Kamu tidak hanya kekasihku, tapi juga sahabat terbaikku.
+
+Selamat ulang tahun, sayangku! Semoga kita bisa terus bersama selamanya. I love you more than words can say! 
+
+Dengan cinta,
+Neurrochmat 💖`
+        ];
+
+        let currentPage = 1;
+        const totalPages = messages.length;
+
+        // Typing effect
+        function typeMessage(elementId, text, speed = 30) {
+            const element = document.getElementById(elementId);
+            element.innerHTML = '';
+            let i = 0;
+            
+            function type() {
+                if (i < text.length) {
+                    if (text.charAt(i) === '\n') {
+                        element.innerHTML += '<br>';
+                    } else {
+                        element.innerHTML += text.charAt(i);
+                    }
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Show page
+        function showPage(pageNum) {
+            document.querySelectorAll('.message-page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            const targetPage = document.querySelector(`[data-page="${pageNum}"]`);
+            targetPage.classList.add('active');
+            
+            typeMessage(`message-${pageNum}`, messages[pageNum - 1]);
+            
+            document.getElementById('current-page').textContent = pageNum;
+            document.getElementById('btn-prev').disabled = pageNum === 1;
+            document.getElementById('btn-next').disabled = pageNum === totalPages;
+            
+            if (pageNum === totalPages) {
+                document.getElementById('btn-next').textContent = '🏠 HOME';
+            } else {
+                document.getElementById('btn-next').textContent = 'SELANJUTNYA ▶';
+            }
+        }
+
+        // Navigation
+        document.getElementById('btn-next').addEventListener('click', () => {
+            if (currentPage < totalPages) {
+                currentPage++;
+                showPage(currentPage);
+            } else {
+                window.location.href = 'index.html';
+            }
+        });
+
+        document.getElementById('btn-prev').addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                showPage(currentPage);
+            }
+        });
+
+        document.getElementById('btn-next-a').addEventListener('click', () => {
+            if (currentPage < totalPages) {
+                currentPage++;
+                showPage(currentPage);
+            }
+        });
+
+        // Initialize
+        showPage(1);
+
+        // Floating hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            document.getElementById('floating-hearts').appendChild(heart);
+            
+            setTimeout(() => heart.remove(), 7000);
+        }
+
+        setInterval(createHeart, 800);
+    </script>
+</body>
+</html>

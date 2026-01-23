@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 Tetris - Happy Birthday!</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Main Console -->
+    <div class="gameboy-console">
+        <!-- Top Section -->
+        <div class="console-top">
+            <div class="power-section">
+                <div class="power-led"></div>
+                <span class="power-text">POWER</span>
+            </div>
+            <div class="brand-name">HEYTML-BOY</div>
+        </div>
+
+        <!-- Screen -->
+        <div class="screen-frame">
+            <div class="screen-inner">
+                <div class="screen-content tetris-screen">
+                    <div class="tetris-header">
+                        <span class="tetris-icon">🎮</span>
+                        <h2>TETRIS</h2>
+                    </div>
+
+                    <div class="tetris-container">
+                        <div class="tetris-info-left">
+                            <div class="info-box">
+                                <div class="info-label">SCORE</div>
+                                <div class="info-value" id="score">0</div>
+                            </div>
+                            <div class="info-box">
+                                <div class="info-label">LEVEL</div>
+                                <div class="info-value" id="level">1</div>
+                            </div>
+                            <div class="info-box">
+                                <div class="info-label">LINES</div>
+                                <div class="info-value" id="lines">0</div>
+                            </div>
+                        </div>
+
+                        <div class="tetris-board-container">
+                            <canvas id="tetris-board" width="200" height="400"></canvas>
+                            <div class="game-overlay hidden" id="game-overlay">
+                                <div class="overlay-content">
+                                    <div class="overlay-title" id="overlay-title">TETRIS</div>
+                                    <div class="overlay-message" id="overlay-message">Press START to play</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tetris-info-right">
+                            <div class="info-box next-box">
+                                <div class="info-label">NEXT</div>
+                                <canvas id="next-piece" width="80" height="80"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tetris-controls-hint">
+                        <span>← → : Move</span>
+                        <span>↑ : Rotate</span>
+                        <span>↓ : Drop</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls Section -->
+        <div class="controls-section">
+            <div class="dpad" id="game-dpad">
+                <div class="dpad-up" id="dpad-up"></div>
+                <div class="dpad-down" id="dpad-down"></div>
+                <div class="dpad-left" id="dpad-left"></div>
+                <div class="dpad-right" id="dpad-right"></div>
+                <div class="dpad-center"></div>
+            </div>
+
+            <div class="action-buttons">
+                <a href="music.html" class="btn-b">B</a>
+                <button class="btn-a" id="btn-rotate">A</button>
+            </div>
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="console-bottom">
+            <div class="speaker-grille">
+                <div class="speaker-line"></div>
+                <div class="speaker-line"></div>
+                <div class="speaker-line"></div>
+                <div class="speaker-line"></div>
+                <div class="speaker-line"></div>
+                <div class="speaker-line"></div>
+            </div>
+            <div class="select-start">
+                <a href="index.html" class="btn-select">HOME</a>
+                <button class="btn-start" id="btn-start-game">START</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/tetris.js"></script>
+</body>
+</html>
