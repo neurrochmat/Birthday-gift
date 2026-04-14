@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="🎂 Hadiah ulang tahun spesial untuk Afri Finda Viana — dari Neurrochmat dengan cinta.">
     <title>🎮 Happy Birthday Afri Finda Viana!</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!-- Loading Screen -->
     <div id="loading-screen" class="loading-screen">
@@ -18,6 +24,14 @@
             <div class="loading-text">Loading Game Data...</div>
         </div>
     </div>
+    <script>
+        // Only show loading screen on first visit
+        if (sessionStorage.getItem('heytml-loaded')) {
+            document.getElementById('loading-screen').style.display = 'none';
+        } else {
+            sessionStorage.setItem('heytml-loaded', 'true');
+        }
+    </script>
 
     <!-- Main Console -->
     <div class="gameboy-console">
@@ -68,16 +82,16 @@
         <!-- Controls Section -->
         <div class="controls-section">
             <div class="dpad">
-                <div class="dpad-up"></div>
-                <div class="dpad-down"></div>
-                <div class="dpad-left"></div>
-                <div class="dpad-right"></div>
+                <div class="dpad-up" role="button" aria-label="D-pad atas"></div>
+                <div class="dpad-down" role="button" aria-label="D-pad bawah"></div>
+                <div class="dpad-left" role="button" aria-label="D-pad kiri"></div>
+                <div class="dpad-right" role="button" aria-label="D-pad kanan"></div>
                 <div class="dpad-center"></div>
             </div>
 
             <div class="action-buttons">
-                <button class="btn-b">B</button>
-                <button class="btn-a">A</button>
+                <button class="btn-b" aria-label="Tombol B" disabled>B</button>
+                <a href="message.html" class="btn-a" aria-label="Buka Message">A</a>
             </div>
         </div>
 
@@ -93,7 +107,7 @@
             </div>
             <div class="select-start">
                 <button class="btn-select">SELECT</button>
-                <button class="btn-start">START</button>
+                <a href="message.html" class="btn-start">START</a>
             </div>
         </div>
     </div>
@@ -101,6 +115,7 @@
     <!-- Floating Hearts Background -->
     <div class="floating-hearts" id="floating-hearts"></div>
 
-    <script src="js/main.js"></script>
+    <script src="js/common.js"></script>
 </body>
+
 </html>

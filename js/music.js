@@ -4,11 +4,13 @@ document.addEventListener('DOMContentLoaded', function () {
     // Playlist configuration - Add your songs here!
     // Format: { title: 'Song Title', artist: 'Artist Name', src: 'assets/music/filename.mp3' }
     const playlist = [
-        { title: 'On Bended Knee', artist: 'Boyz II Men', src: 'assets/music/song1.mp3' },
-        { title: 'I Do It For You', artist: 'Bryan Adams', src: 'assets/music/song2.mp3' },
-        { title: 'Just the Two of Us', artist: 'Grover Washington Jr.', src: 'assets/music/song3.mp3' },
-        { title: "Nothing's Gonna Change", artist: 'George Benson', src: 'assets/music/song4.mp3' },
-        { title: 'How Deep Is Your Love', artist: 'Bee Gees', src: 'assets/music/song5.mp3' },
+        { title: 'A Thousand Years', artist: 'John Michael Howell, JVKE, & ZVC', src: 'assets/music/A Thousand Years.mp3' },
+        { title: "About You", artist: 'The 1975', src: 'assets/music/About You.mp3' },
+        { title: "Back to Friends", artist: 'sombr', src: 'assets/music/back to friends.mp3' },
+        { title: 'First Love', artist: 'Ardhito Pramono, Nikka Costa', src: 'assets/music/First Love.mp3' },
+        { title: 'Let You Break My Heart Again', artist: 'Laufey & Philharmonia Orchestra', src: 'assets/music/Let You Break My Heart Again.mp3' },
+        { title: 'Seasons', artist: 'wave to earth', src: 'assets/music/seasons.mp3' },
+        { title: 'You\'ll Be in My Heart', artist: 'Laufey', src: 'assets/music/You\'ll Be in My Heart.mp3' },
     ];
 
     let currentSongIndex = 0;
@@ -60,11 +62,21 @@ document.addEventListener('DOMContentLoaded', function () {
     // Play song
     function playSong(index) {
         loadSong(index);
+        // Pause background music
+        window.dispatchEvent(new Event('bgm-pause'));
         audioPlayer.play().catch(err => {
             console.log('Audio play error:', err);
-            // Show message if audio file not found
-            songArtist.textContent = '(Tambahkan file musik)';
+            // Show visible error message
+            songArtist.textContent = '⚠️ File tidak ditemukan';
+            songArtist.style.color = '#ff6b6b';
+            isPlaying = false;
+            updatePlayButton();
+            vinylRecord.classList.remove('spinning');
+            // Resume background music on error
+            window.dispatchEvent(new Event('bgm-resume'));
+            return;
         });
+        songArtist.style.color = '';
         isPlaying = true;
         updatePlayButton();
         vinylRecord.classList.add('spinning');
@@ -75,7 +87,11 @@ document.addEventListener('DOMContentLoaded', function () {
         if (isPlaying) {
             audioPlayer.pause();
             vinylRecord.classList.remove('spinning');
+            // Resume background music
+            window.dispatchEvent(new Event('bgm-resume'));
         } else {
+            // Pause background music
+            window.dispatchEvent(new Event('bgm-pause'));
             audioPlayer.play().catch(err => {
                 console.log('Audio play error:', err);
             });
@@ -143,24 +159,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const percent = (e.clientX - rect.left) / rect.width;
         audioPlayer.currentTime = percent * audioPlayer.duration;
     });
-
-    // Create floating hearts
-    function createHeart() {
-        const heart = document.createElement('div');
-        heart.className = 'heart';
-        heart.innerHTML = ['❤️', '💕', '💖', '🎵', '🎶'][Math.floor(Math.random() * 5)];
-        heart.style.left = Math.random() * 100 + 'vw';
-        heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
-        heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
-
-        const container = document.getElementById('floating-hearts');
-        if (container) {
-            container.appendChild(heart);
-            setTimeout(() => heart.remove(), 7000);
-        }
-    }
-
-    setInterval(createHeart, 800);
 
     // Initialize
     initPlaylist();

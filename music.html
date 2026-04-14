@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="🎵 Playlist musik spesial — Hadiah ulang tahun untuk Afri Finda Viana.">
     <title>🎵 Music - Happy Birthday!</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎵</text></svg>">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!-- Main Console -->
     <div class="gameboy-console">
@@ -51,9 +56,9 @@
                         </div>
 
                         <div class="player-controls">
-                            <button class="control-btn" id="btn-prev-song">⏮</button>
-                            <button class="control-btn play-btn" id="btn-play">▶</button>
-                            <button class="control-btn" id="btn-next-song">⏭</button>
+                            <button class="control-btn" id="btn-prev-song" aria-label="Lagu sebelumnya">⏮</button>
+                            <button class="control-btn play-btn" id="btn-play" aria-label="Play/Pause">▶</button>
+                            <button class="control-btn" id="btn-next-song" aria-label="Lagu selanjutnya">⏭</button>
                         </div>
                     </div>
 
@@ -70,16 +75,16 @@
         <!-- Controls Section -->
         <div class="controls-section">
             <div class="dpad">
-                <div class="dpad-up"></div>
-                <div class="dpad-down"></div>
-                <div class="dpad-left"></div>
-                <div class="dpad-right"></div>
+                <div class="dpad-up" role="button" aria-label="D-pad atas"></div>
+                <div class="dpad-down" role="button" aria-label="D-pad bawah"></div>
+                <div class="dpad-left" role="button" aria-label="D-pad kiri"></div>
+                <div class="dpad-right" role="button" aria-label="D-pad kanan"></div>
                 <div class="dpad-center"></div>
             </div>
 
             <div class="action-buttons">
-                <a href="gallery.html" class="btn-b">B</a>
-                <button class="btn-a" id="btn-play-a">A</button>
+                <a href="gallery.html" class="btn-b" aria-label="Kembali ke Gallery">B</a>
+                <a href="tetris.html" class="btn-a" aria-label="Lanjut ke Tetris">A</a>
             </div>
         </div>
 
@@ -106,6 +111,8 @@
     <!-- Floating Hearts Background -->
     <div class="floating-hearts" id="floating-hearts"></div>
 
+    <script src="js/common.js"></script>
     <script src="js/music.js"></script>
 </body>
+
 </html>

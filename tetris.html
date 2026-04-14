@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="🎮 Game Tetris — Hadiah ulang tahun untuk Afri Finda Viana.">
     <title>🎮 Tetris - Happy Birthday!</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!-- Main Console -->
     <div class="gameboy-console">
@@ -45,7 +50,7 @@
                         </div>
 
                         <div class="tetris-board-container">
-                            <canvas id="tetris-board" width="200" height="400"></canvas>
+                            <canvas id="tetris-board" width="120" height="240"></canvas>
                             <div class="game-overlay hidden" id="game-overlay">
                                 <div class="overlay-content">
                                     <div class="overlay-title" id="overlay-title">TETRIS</div>
@@ -57,7 +62,7 @@
                         <div class="tetris-info-right">
                             <div class="info-box next-box">
                                 <div class="info-label">NEXT</div>
-                                <canvas id="next-piece" width="80" height="80"></canvas>
+                                <canvas id="next-piece" width="60" height="60"></canvas>
                             </div>
                         </div>
                     </div>
@@ -74,16 +79,16 @@
         <!-- Controls Section -->
         <div class="controls-section">
             <div class="dpad" id="game-dpad">
-                <div class="dpad-up" id="dpad-up"></div>
-                <div class="dpad-down" id="dpad-down"></div>
-                <div class="dpad-left" id="dpad-left"></div>
-                <div class="dpad-right" id="dpad-right"></div>
+                <div class="dpad-up" id="dpad-up" role="button" aria-label="Rotasi blok"></div>
+                <div class="dpad-down" id="dpad-down" role="button" aria-label="Jatuhkan blok"></div>
+                <div class="dpad-left" id="dpad-left" role="button" aria-label="Geser kiri"></div>
+                <div class="dpad-right" id="dpad-right" role="button" aria-label="Geser kanan"></div>
                 <div class="dpad-center"></div>
             </div>
 
             <div class="action-buttons">
-                <a href="music.html" class="btn-b">B</a>
-                <button class="btn-a" id="btn-rotate">A</button>
+                <a href="music.html" class="btn-b" aria-label="Kembali ke Music">B</a>
+                <button class="btn-a" id="btn-rotate" aria-label="Rotasi blok">A</button>
             </div>
         </div>
 
@@ -104,6 +109,11 @@
         </div>
     </div>
 
+    <!-- Floating Hearts Background -->
+    <div class="floating-hearts" id="floating-hearts"></div>
+
+    <script src="js/common.js"></script>
     <script src="js/tetris.js"></script>
 </body>
+
 </html>

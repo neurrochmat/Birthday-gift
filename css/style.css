@@ -67,22 +67,44 @@ body {
 }
 
 @keyframes loadProgress {
-    0% { width: 0%; }
-    100% { width: 100%; }
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
 }
 
 @keyframes fadeOut {
-    to { opacity: 0; pointer-events: none; }
+    to {
+        opacity: 0;
+        pointer-events: none;
+    }
 }
 
 @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
 }
 
 @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
 
 /* ===== GAME BOY CONSOLE ===== */
@@ -90,7 +112,7 @@ body {
     background: linear-gradient(180deg, #c4c4c4 0%, #a8a8a8 50%, #8c8c8c 100%);
     border-radius: 20px 20px 60px 60px;
     padding: 20px;
-    box-shadow: 
+    box-shadow:
         0 10px 30px rgba(0, 0, 0, 0.5),
         inset 0 2px 0 rgba(255, 255, 255, 0.3),
         inset 0 -2px 0 rgba(0, 0, 0, 0.2);
@@ -124,8 +146,15 @@ body {
 }
 
 @keyframes ledPulse {
-    0%, 100% { box-shadow: 0 0 10px #ff3333, 0 0 20px #ff3333; }
-    50% { box-shadow: 0 0 5px #ff3333, 0 0 10px #ff3333; }
+
+    0%,
+    100% {
+        box-shadow: 0 0 10px #ff3333, 0 0 20px #ff3333;
+    }
+
+    50% {
+        box-shadow: 0 0 5px #ff3333, 0 0 10px #ff3333;
+    }
 }
 
 .power-text {
@@ -146,7 +175,7 @@ body {
     border-radius: 10px;
     padding: 15px;
     margin-bottom: 20px;
-    box-shadow: 
+    box-shadow:
         inset 0 3px 10px rgba(0, 0, 0, 0.5),
         0 2px 0 rgba(255, 255, 255, 0.2);
 }
@@ -160,9 +189,20 @@ body {
 
 .screen-content {
     background: linear-gradient(180deg, #9bbc0f 0%, #8bac0f 100%);
-    min-height: 320px;
+    min-height: 420px;
     padding: 15px;
     position: relative;
+    animation: screenIn 0.4s ease-out;
+}
+
+@keyframes screenIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 /* ===== WELCOME SECTION ===== */
@@ -178,8 +218,15 @@ body {
 }
 
 @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 .welcome-title {
@@ -236,10 +283,21 @@ body {
     transform: scale(0.95);
 }
 
-.menu-button[data-color="blue"] { border-color: #3498db; }
-.menu-button[data-color="pink"] { border-color: #e91e8c; }
-.menu-button[data-color="purple"] { border-color: #9b59b6; }
-.menu-button[data-color="green"] { border-color: #2ecc71; }
+.menu-button[data-color="blue"] {
+    border-color: #3498db;
+}
+
+.menu-button[data-color="pink"] {
+    border-color: #e91e8c;
+}
+
+.menu-button[data-color="purple"] {
+    border-color: #9b59b6;
+}
+
+.menu-button[data-color="green"] {
+    border-color: #2ecc71;
+}
 
 .menu-icon {
     display: block;
@@ -268,44 +326,69 @@ body {
     position: relative;
 }
 
-.dpad-up, .dpad-down, .dpad-left, .dpad-right {
+.dpad-up,
+.dpad-down,
+.dpad-left,
+.dpad-right {
     position: absolute;
     background: #2c2c2c;
     border-radius: 3px;
-    box-shadow: 
+    box-shadow:
         inset 0 -2px 0 rgba(0, 0, 0, 0.5),
         0 2px 5px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     transition: all 0.1s ease;
 }
 
-.dpad-up:hover, .dpad-down:hover, .dpad-left:hover, .dpad-right:hover {
+.dpad-up:hover,
+.dpad-down:hover,
+.dpad-left:hover,
+.dpad-right:hover {
     background: #3c3c3c;
 }
 
-.dpad-up:active, .dpad-down:active, .dpad-left:active, .dpad-right:active {
+.dpad-up:active,
+.dpad-down:active,
+.dpad-left:active,
+.dpad-right:active {
     box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.5);
 }
 
-.dpad-up, .dpad-down {
+.dpad-up,
+.dpad-down {
     width: 30px;
     height: 35px;
     left: 50%;
     transform: translateX(-50%);
 }
 
-.dpad-up { top: 0; border-radius: 5px 5px 0 0; }
-.dpad-down { bottom: 0; border-radius: 0 0 5px 5px; }
+.dpad-up {
+    top: 0;
+    border-radius: 5px 5px 0 0;
+}
 
-.dpad-left, .dpad-right {
+.dpad-down {
+    bottom: 0;
+    border-radius: 0 0 5px 5px;
+}
+
+.dpad-left,
+.dpad-right {
     width: 35px;
     height: 30px;
     top: 50%;
     transform: translateY(-50%);
 }
 
-.dpad-left { left: 0; border-radius: 5px 0 0 5px; }
-.dpad-right { right: 0; border-radius: 0 5px 5px 0; }
+.dpad-left {
+    left: 0;
+    border-radius: 5px 0 0 5px;
+}
+
+.dpad-right {
+    right: 0;
+    border-radius: 0 5px 5px 0;
+}
 
 .dpad-center {
     position: absolute;
@@ -325,7 +408,8 @@ body {
     transform: rotate(-25deg);
 }
 
-.btn-a, .btn-b {
+.btn-a,
+.btn-b {
     width: 45px;
     height: 45px;
     border-radius: 50%;
@@ -334,7 +418,7 @@ body {
     font-size: 12px;
     color: #fff;
     cursor: pointer;
-    box-shadow: 
+    box-shadow:
         0 5px 0 rgba(0, 0, 0, 0.3),
         0 8px 15px rgba(0, 0, 0, 0.3);
     transition: all 0.1s ease;
@@ -352,14 +436,16 @@ body {
     background: linear-gradient(180deg, #e74c3c 0%, #c0392b 100%);
 }
 
-.btn-a:hover, .btn-b:hover {
+.btn-a:hover,
+.btn-b:hover {
     transform: translateY(2px);
-    box-shadow: 
+    box-shadow:
         0 3px 0 rgba(0, 0, 0, 0.3),
         0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
-.btn-a:active, .btn-b:active {
+.btn-a:active,
+.btn-b:active {
     transform: translateY(5px);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
@@ -393,7 +479,8 @@ body {
     transform: rotate(-25deg);
 }
 
-.btn-select, .btn-start {
+.btn-select,
+.btn-start {
     background: #555;
     color: #fff;
     border: none;
@@ -403,17 +490,19 @@ body {
     font-size: 6px;
     cursor: pointer;
     text-decoration: none;
-    box-shadow: 
+    box-shadow:
         inset 0 -2px 0 rgba(0, 0, 0, 0.3),
         0 2px 5px rgba(0, 0, 0, 0.3);
     transition: all 0.1s ease;
 }
 
-.btn-select:hover, .btn-start:hover {
+.btn-select:hover,
+.btn-start:hover {
     background: #666;
 }
 
-.btn-select:active, .btn-start:active {
+.btn-select:active,
+.btn-start:active {
     box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.3);
 }
 
@@ -441,6 +530,7 @@ body {
         transform: translateY(0) rotate(0deg);
         opacity: 0.7;
     }
+
     100% {
         transform: translateY(-100vh) rotate(360deg);
         opacity: 0;
@@ -536,12 +626,14 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 320px;
+    height: 100%;
+    overflow: hidden;
 }
 
 .gallery-header {
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    flex-shrink: 0;
 }
 
 .gallery-header h2 {
@@ -553,46 +645,200 @@ body {
     font-size: 20px;
 }
 
-.photobox-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* Scrollable photo strip */
+.photo-strip {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
     width: 100%;
-}
-
-.photobox-frame {
-    background: #fff;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    position: relative;
-    margin-bottom: 10px;
-}
-
-.photo-display {
-    width: 200px;
-    height: 150px;
-    background: #eee;
+    padding: 5px 10px 15px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    overflow: hidden;
-    border-radius: 3px;
+    gap: 15px;
+    scroll-behavior: smooth;
 }
 
+/* Hide scrollbar but keep scroll */
+.photo-strip::-webkit-scrollbar {
+    width: 4px;
+}
+
+.photo-strip::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.photo-strip::-webkit-scrollbar-thumb {
+    background: #306230;
+    border-radius: 2px;
+}
+
+/* Polaroid card */
+.polaroid-card {
+    position: relative;
+    width: 92%;
+    max-width: 280px;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Delete photo button (top-right corner) */
+.delete-photo-btn {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid #5c1a1a;
+    background: linear-gradient(180deg, #c0392b 0%, #8b1a1a 100%);
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+        0 2px 0 rgba(0, 0, 0, 0.4),
+        0 3px 8px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+    opacity: 0;
+    transform: scale(0.5);
+    pointer-events: none;
+    transition: all 0.2s ease;
+}
+
+.delete-photo-btn.visible {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+    animation: btnAppear 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.delete-photo-btn:hover {
+    background: linear-gradient(180deg, #e74c3c 0%, #a93226 100%);
+    box-shadow:
+        0 2px 0 rgba(0, 0, 0, 0.4),
+        0 3px 12px rgba(231, 76, 60, 0.4);
+    transform: scale(1.15);
+}
+
+.delete-photo-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Printing state: hidden via clip-path, revealed progressively by JS */
+.polaroid-card.printing {
+    clip-path: inset(0 0 100% 0);
+}
+
+/* Fully printed */
+.polaroid-card.printed {
+    clip-path: none;
+}
+
+/* Print progress text */
+.print-progress {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 9px;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 10px;
+    text-shadow: 0 0 8px rgba(155, 188, 15, 0.8);
+    background: rgba(15, 56, 15, 0.4);
+    border-radius: 6px;
+    width: 92%;
+    max-width: 280px;
+    transition: opacity 0.5s ease;
+}
+
+.print-progress.done {
+    color: #5dfc5d;
+    text-shadow: 0 0 10px rgba(93, 252, 93, 0.6);
+}
+
+/* Polaroid frame (white border around image) */
+.polaroid-frame {
+    background: #ffffff;
+    border-radius: 4px;
+    padding: 8px 8px 4px;
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.polaroid-image-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border-radius: 2px;
+    background: #222;
+}
+
+.polaroid-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Photo number badge */
+.polaroid-number {
+    position: absolute;
+    bottom: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    color: #ffd700;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.8), 0 0 3px rgba(0, 0, 0, 0.6);
+}
+
+/* Caption below image inside frame */
+.polaroid-caption {
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 7px;
+    color: #555;
+    padding: 6px 4px 4px;
+}
+
+/* Date stamp below polaroid */
+.polaroid-date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 6px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 7px;
+    color: #9bbc0f;
+}
+
+.date-dot {
+    font-size: 5px;
+    color: #306230;
+}
+
+/* No photo fallback */
 .no-photo-message {
     text-align: center;
-    padding: 10px;
+    padding: 30px 10px;
+    color: #0f380f;
 }
 
 .camera-icon {
     font-size: 30px;
     margin-bottom: 10px;
+    display: block;
 }
 
 .no-photo-message p {
-    font-size: 6px;
+    font-size: 7px;
     color: #666;
     margin-bottom: 5px;
 }
@@ -604,94 +850,98 @@ body {
     border-radius: 3px;
 }
 
-.no-photo-message .hint {
-    font-size: 5px;
-    color: #999;
-    margin-top: 8px;
-}
-
-.photo-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.photo-image.hidden {
-    display: none;
-}
-
-.photo-frame-decoration {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    pointer-events: none;
-}
-
-.frame-corner {
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    border: 3px solid #306230;
-}
-
-.frame-corner.top-left { top: 5px; left: 5px; border-right: none; border-bottom: none; }
-.frame-corner.top-right { top: 5px; right: 5px; border-left: none; border-bottom: none; }
-.frame-corner.bottom-left { bottom: 5px; left: 5px; border-right: none; border-top: none; }
-.frame-corner.bottom-right { bottom: 5px; right: 5px; border-left: none; border-top: none; }
-
-.photo-controls {
+/* Polaroid footer (date + change photo button) */
+.polaroid-footer {
     display: flex;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 10px;
+    justify-content: space-between;
+    margin-top: 6px;
+    gap: 6px;
 }
 
-.photo-btn {
-    background: #306230;
+/* Change Photo Button */
+.change-photo-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: linear-gradient(180deg, #306230 0%, #1a3a1a 100%);
     border: 2px solid #0f380f;
     color: #9bbc0f;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    font-size: 12px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.photo-btn:hover {
-    background: #0f380f;
-}
-
-.photo-counter {
-    font-size: 8px;
-    color: #0f380f;
-}
-
-.print-btn {
-    background: linear-gradient(180deg, #e91e8c 0%, #c4167a 100%);
-    border: none;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 25px;
+    padding: 5px 8px;
+    border-radius: 6px;
     font-family: 'Press Start 2P', cursive;
-    font-size: 8px;
+    font-size: 5px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0 4px 10px rgba(233, 30, 140, 0.4);
+    box-shadow:
+        0 2px 0 rgba(0, 0, 0, 0.4),
+        0 3px 8px rgba(0, 0, 0, 0.3);
     transition: all 0.2s ease;
+    opacity: 0;
+    transform: translateY(8px) scale(0.9);
+    pointer-events: none;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
-.print-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(233, 30, 140, 0.5);
+.change-photo-btn.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+    animation: btnAppear 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-.print-icon {
-    font-size: 14px;
+@keyframes btnAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(8px) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.change-photo-btn:hover {
+    background: linear-gradient(180deg, #3d7a3d 0%, #245824 100%);
+    color: #c5e00f;
+    box-shadow:
+        0 2px 0 rgba(0, 0, 0, 0.4),
+        0 3px 12px rgba(155, 188, 15, 0.3);
+    transform: translateY(-1px);
+}
+
+.change-photo-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+.change-photo-icon {
+    font-size: 8px;
+    line-height: 1;
+}
+
+.change-photo-text {
+    line-height: 1;
+}
+
+/* Photo swap flash animation */
+.polaroid-card.photo-swapped .polaroid-image-wrap {
+    animation: swapFlash 0.6s ease;
+}
+
+@keyframes swapFlash {
+    0% {
+        filter: brightness(2) saturate(0);
+        transform: scale(0.95);
+    }
+    50% {
+        filter: brightness(1.5) saturate(0.5);
+        transform: scale(1.02);
+    }
+    100% {
+        filter: brightness(1) saturate(1);
+        transform: scale(1);
+    }
 }
 
 /* ===== MUSIC PAGE ===== */
@@ -750,8 +1000,13 @@ body {
 }
 
 @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .vinyl-center {
@@ -846,7 +1101,7 @@ body {
 }
 
 .playlist-items {
-    max-height: 80px;
+    max-height: 110x;
     overflow-y: auto;
 }
 
@@ -909,7 +1164,8 @@ body {
     flex: 1;
 }
 
-.tetris-info-left, .tetris-info-right {
+.tetris-info-left,
+.tetris-info-right {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -989,8 +1245,60 @@ body {
 }
 
 .tetris-controls-hint span {
-    font-size: 5px;
+    font-size: 7px;
     color: #306230;
+}
+
+/* ===== BACKGROUND MUSIC TOGGLE ===== */
+.bgm-toggle {
+    position: fixed;
+    bottom: 16px;
+    left: 16px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid rgba(155, 188, 15, 0.4);
+    background: rgba(15, 56, 15, 0.7);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.4),
+        inset 0 0 8px rgba(155, 188, 15, 0.1);
+    transition: all 0.3s ease;
+    animation: bgmPulse 2s ease-in-out 3;
+}
+
+@keyframes bgmPulse {
+    0%, 100% { box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4); }
+    50% { box-shadow: 0 2px 15px rgba(155, 188, 15, 0.5), 0 0 20px rgba(155, 188, 15, 0.2); }
+}
+
+.bgm-toggle:hover {
+    background: rgba(15, 56, 15, 0.9);
+    border-color: rgba(155, 188, 15, 0.8);
+    transform: scale(1.1);
+    box-shadow:
+        0 2px 15px rgba(155, 188, 15, 0.4),
+        inset 0 0 10px rgba(155, 188, 15, 0.15);
+}
+
+.bgm-toggle:active {
+    transform: scale(0.95);
+}
+
+.bgm-toggle.muted {
+    opacity: 0.5;
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.bgm-toggle.muted:hover {
+    opacity: 0.8;
 }
 
 /* ===== RESPONSIVE ===== */
@@ -1034,7 +1342,8 @@ body {
         height: 80px;
     }
 
-    .btn-a, .btn-b {
+    .btn-a,
+    .btn-b {
         width: 40px;
         height: 40px;
         font-size: 10px;

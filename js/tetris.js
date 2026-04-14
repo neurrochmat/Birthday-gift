@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const COLS = 10;
     const ROWS = 20;
-    const BLOCK_SIZE = 20;
+    const BLOCK_SIZE = 12;
 
     const scoreElement = document.getElementById('score');
     const levelElement = document.getElementById('level');
