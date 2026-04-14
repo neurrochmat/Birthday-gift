@@ -1,0 +1,83 @@
+/* ===== MESSAGE PAGE ===== */
+.message-screen {
+    display: flex;
+    flex-direction: column;
+    height: 320px;
+}
+
+.message-header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.message-header h2 {
+    font-size: 10px;
+    color: #0f380f;
+}
+
+.message-icon {
+    font-size: 20px;
+}
+
+.message-container {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.message-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    overflow-y: auto;
+}
+
+.message-page.active {
+    opacity: 1;
+}
+
+.message-text {
+    font-size: 8px;
+    color: #0f380f;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.message-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 2px solid #306230;
+}
+
+.nav-btn {
+    background: #306230;
+    border: 2px solid #0f380f;
+    color: #9bbc0f;
+    padding: 8px 10px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 6px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.2s ease;
+}
+
+.nav-btn:hover:not(:disabled) {
+    background: #0f380f;
+}
+
+.nav-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.page-indicator {
+    font-size: 8px;
+    color: #0f380f;
+}
