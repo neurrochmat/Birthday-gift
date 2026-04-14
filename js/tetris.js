@@ -286,23 +286,35 @@ document.addEventListener('DOMContentLoaded', function () {
 
         while (!checkCollision(currentPiece, 0, 1)) {
             currentPiece.y++;
-            score += 2;
         }
         lockPiece();
-        updateScore();
         drawBoard();
     }
 
-    // Rotate
+    // Rotate with wall kick
     function rotate() {
         if (!gameRunning || !currentPiece) return;
 
         const rotated = rotatePiece(currentPiece);
 
+        // Try normal rotation first
         if (!checkCollision(currentPiece, 0, 0, rotated)) {
             currentPiece.shape = rotated;
             drawBoard();
+            return;
         }
+
+        // Wall kick: try shifting left/right to fit
+        const kicks = [1, -1, 2, -2];
+        for (const kick of kicks) {
+            if (!checkCollision(currentPiece, kick, 0, rotated)) {
+                currentPiece.shape = rotated;
+                currentPiece.x += kick;
+                drawBoard();
+                return;
+            }
+        }
+        // If no kick works, don't rotate
     }
 
     // Game over
@@ -356,8 +368,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 break;
             case 'ArrowDown':
                 dropPiece();
-                score++;
-                updateScore();
                 break;
             case 'ArrowUp':
                 rotate();
@@ -373,8 +383,6 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('dpad-right')?.addEventListener('click', () => movePiece(1));
     document.getElementById('dpad-down')?.addEventListener('click', () => {
         dropPiece();
-        score++;
-        updateScore();
     });
     document.getElementById('dpad-up')?.addEventListener('click', rotate);
 

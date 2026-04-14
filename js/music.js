@@ -62,8 +62,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Play song
     function playSong(index) {
         loadSong(index);
-        // Pause background music
-        window.dispatchEvent(new Event('bgm-pause'));
         audioPlayer.play().catch(err => {
             console.log('Audio play error:', err);
             // Show visible error message
@@ -72,8 +70,6 @@ document.addEventListener('DOMContentLoaded', function () {
             isPlaying = false;
             updatePlayButton();
             vinylRecord.classList.remove('spinning');
-            // Resume background music on error
-            window.dispatchEvent(new Event('bgm-resume'));
             return;
         });
         songArtist.style.color = '';
@@ -87,11 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (isPlaying) {
             audioPlayer.pause();
             vinylRecord.classList.remove('spinning');
-            // Resume background music
-            window.dispatchEvent(new Event('bgm-resume'));
         } else {
-            // Pause background music
-            window.dispatchEvent(new Event('bgm-pause'));
             audioPlayer.play().catch(err => {
                 console.log('Audio play error:', err);
             });
