@@ -379,6 +379,91 @@ body {
     display: none !important;
 }
 
+/* ===== PERTANYAAN MUSIK POPUP MODAL ===== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    backdrop-filter: blur(3px);
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: #9bbc0f;
+    border: 4px solid #0f380f;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 90%;
+    width: 320px;
+    color: #0f380f;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5), inset 0 0 10px rgba(15, 56, 15, 0.2);
+    text-align: center;
+    transform: translateY(-20px);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0);
+}
+
+.modal-content h3 {
+    font-size: 12px;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.modal-content p {
+    font-size: 8px;
+    margin-bottom: 20px;
+    line-height: 1.8;
+    color: #1a4d1a;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.modal-btn {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    padding: 10px 20px;
+    border: 2px solid #0f380f;
+    background: #8bac0f;
+    color: #0f380f;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 0 rgba(15, 56, 15, 0.5);
+}
+
+.modal-btn:hover {
+    background: #0f380f;
+    color: #9bbc0f;
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 rgba(15, 56, 15, 0.5);
+}
+
+.modal-btn:active {
+    transform: translateY(4px);
+    box-shadow: none;
+}
+
 /* ===== SCROLLBAR ===== */
 ::-webkit-scrollbar {
     width: 6px;

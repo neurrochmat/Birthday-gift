@@ -8,8 +8,11 @@ document.addEventListener('DOMContentLoaded', function () {
         { title: "About You", artist: 'The 1975', src: 'assets/music/About You.mp3' },
         { title: "Back to Friends", artist: 'sombr', src: 'assets/music/back to friends.mp3' },
         { title: 'First Love', artist: 'Ardhito Pramono, Nikka Costa', src: 'assets/music/First Love.mp3' },
+        { title: 'Flower of Regrets', artist: 'BBIBEEB', src: 'assets/music/Flower of Regrets.mp3' },
         { title: 'Let You Break My Heart Again', artist: 'Laufey & Philharmonia Orchestra', src: 'assets/music/Let You Break My Heart Again.mp3' },
+        { title: 'Love Me Not', artist: 'Ravyn Lenae', src: 'assets/music/Love Me Not.mp3' },
         { title: 'Seasons', artist: 'wave to earth', src: 'assets/music/seasons.mp3' },
+        { title: 'The Night We Met', artist: 'Lord Huron', src: 'assets/music/The Night We Met.mp3' },
         { title: 'You\'ll Be in My Heart', artist: 'Laufey', src: 'assets/music/You\'ll Be in My Heart.mp3' },
     ];
 

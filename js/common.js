@@ -90,35 +90,84 @@ document.addEventListener('DOMContentLoaded', function () {
             bgmToggle.classList.add('muted');
         }
 
-        bgmToggle.addEventListener('click', () => {
-            bgMusic.muted = !bgMusic.muted;
-            bgmToggle.innerHTML = bgMusic.muted ? '🔇' : '🔊';
-            bgmToggle.classList.toggle('muted', bgMusic.muted);
-            sessionStorage.setItem('bgm-muted', bgMusic.muted);
-
-            // If first interaction, start playing
-            if (bgMusic.paused) {
+        const updateMusicState = (mute) => {
+            bgMusic.muted = mute;
+            bgmToggle.innerHTML = mute ? '🔇' : '🔊';
+            bgmToggle.classList.toggle('muted', mute);
+            sessionStorage.setItem('bgm-muted', mute);
+            
+            if (!mute && bgMusic.paused) {
                 bgMusic.play().catch(() => {});
             }
+        };
+
+        bgmToggle.addEventListener('click', () => {
+            updateMusicState(!bgMusic.muted);
         });
 
-        // Auto-play on first user interaction (browsers require user gesture)
-        function startBgMusic() {
-            if (bgMusic.paused && !isMuted) {
+        // Tanya izin user pada visit pertama melalui popup
+        const hasPrompted = sessionStorage.getItem('bgm-prompted');
+        if (!hasPrompted) {
+            sessionStorage.setItem('bgm-prompted', 'true');
+            
+            // Tunggu sebentar untuk menampilkan modal (kasih delay buat loading screen jika ada)
+            setTimeout(() => {
+                const modalOverlay = document.createElement('div');
+                modalOverlay.className = 'modal-overlay';
+                
+                const modalContent = document.createElement('div');
+                modalContent.className = 'modal-content';
+                modalContent.innerHTML = `
+                    <h3>Putar Musik Background?</h3>
+                    <p>Catatan: Kamu bisa mematikan/menyalakan musik lagi kapan saja melalui tombol volume di pojok kiri bawah layar 🔊</p>
+                    <div class="modal-buttons">
+                        <button class="modal-btn" id="btn-bgm-no">Tidak</button>
+                        <button class="modal-btn" id="btn-bgm-yes">Ya</button>
+                    </div>
+                `;
+                
+                modalOverlay.appendChild(modalContent);
+                document.body.appendChild(modalOverlay);
+                
+                // Trigger animasi masuk
+                requestAnimationFrame(() => {
+                    modalOverlay.classList.add('active');
+                });
+                
+                const closeModal = () => {
+                    modalOverlay.classList.remove('active');
+                    setTimeout(() => modalOverlay.remove(), 300);
+                };
+                
+                document.getElementById('btn-bgm-yes').addEventListener('click', () => {
+                    updateMusicState(false);
+                    closeModal();
+                });
+                
+                document.getElementById('btn-bgm-no').addEventListener('click', () => {
+                    updateMusicState(true);
+                    closeModal();
+                });
+            }, window.location.pathname.endsWith('index.html') || window.location.pathname === '/' ? 1500 : 500); 
+        } else {
+            // Auto-play on first user interaction (browsers require user gesture)
+            const startBgMusic = () => {
+                if (bgMusic.paused && sessionStorage.getItem('bgm-muted') !== 'true') {
+                    bgMusic.play().catch(() => {});
+                }
+                document.removeEventListener('click', startBgMusic);
+                document.removeEventListener('touchstart', startBgMusic);
+                document.removeEventListener('keydown', startBgMusic);
+            };
+
+            document.addEventListener('click', startBgMusic);
+            document.addEventListener('touchstart', startBgMusic);
+            document.addEventListener('keydown', startBgMusic);
+
+            // Try auto-play immediately (works if user already interacted in session)
+            if (sessionStorage.getItem('bgm-muted') !== 'true') {
                 bgMusic.play().catch(() => {});
             }
-            document.removeEventListener('click', startBgMusic);
-            document.removeEventListener('touchstart', startBgMusic);
-            document.removeEventListener('keydown', startBgMusic);
-        }
-
-        document.addEventListener('click', startBgMusic);
-        document.addEventListener('touchstart', startBgMusic);
-        document.addEventListener('keydown', startBgMusic);
-
-        // Try auto-play immediately (works if user already interacted in session)
-        if (!isMuted) {
-            bgMusic.play().catch(() => {});
         }
     }
 });
